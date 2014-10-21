@@ -41,7 +41,7 @@ dc <- rbindlist(pblapply(s_ids, function(x) {
   # this one looks for a paragraph with a "bodytext" class, then looks for the
   # very next sibling paragraph and grabs the text outside the <b> tags OR
   # looks for a sibling <a> to the sibling <p> and grabs the text from it
-  # and it leavs a blank line, so nuke it before continuing
+  # and it leaves a blank line, so nuke it before continuing
   values <- pg_2 %>% html_nodes(xpath="//p[contains(@class,'bodytext')]/following-sibling::p[1]/b/following-sibling::text() |
                                        //p[contains(@class,'bodytext')]/following-sibling::p[1]/b/following-sibling::a/text()") %>%
     html_text() %>%
